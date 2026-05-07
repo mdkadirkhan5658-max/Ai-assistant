@@ -3,21 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code-Master AI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Code-Master AI | Python Powered</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        .chat-area { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+        .msg { padding: 12px 16px; border-radius: 10px; max-width: 80%; line-height: 1.6; }
+        .user { align-self: flex-end; background: #238636; color: white; }
+        .ai { align-self: flex-start; background: #161b22; border: 1px solid #30363d; }
+        .input-box { padding: 20px; background: #161b22; border-top: 1px solid #30363d; display: flex; gap: 10px; }
+        textarea { flex: 1; background: #0d1117; border: 1px solid #30363d; color: white; padding: 10px; border-radius: 6px; resize: none; outline: none; }
+        button { background: #1f6feb; border: none; color: white; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        pre { background: #000; padding: 15px; border-radius: 8px; overflow-x: auto; color: #79c0ff; border: 1px solid #30363d; }
+    </style>
 </head>
 <body>
-    <div class="chat-container">
-        <header>
-            <div class="logo">🤖 Code-Master AI</div>
-            <div class="status">অনলাইন</div>
-        </header>
-        <div id="chat-box" class="chat-box"></div>
-        <div class="input-area">
-            <textarea id="user-input" placeholder="আপনার কোডিং প্রশ্ন লিখুন..."></textarea>
-            <button id="send-btn">পাঠান</button>
-        </div>
+    <div id="chat-area" class="chat-area">
+        <div class="msg ai">আসসালামু আলাইকুম! পাইথন ব্যাক-এন্ডের মাধ্যমে আমি এখন আরও শক্তিশালী। আজ আপনার জন্য কী কোড লিখব?</div>
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="input-box">
+        <textarea id="userInput" rows="1" placeholder="আপনার প্রশ্নটি এখানে লিখুন..."></textarea>
+        <button onclick="sendMessage()">পাঠান</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const chatArea = document.getElementById('chat-area');
+            const message = input.value.trim();
+            if (!message) return;
+
+            chatArea.innerHTML += `<div class="msg user">${message}</div>`;
+            input.value = '';
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: message })
+            });
+
+            const data = await response.json();
+            const aiResponse = data.response ? data.response.replace(/
+http://googleusercontent.com/immersive_entry_chip/0
+
+---
+
+### এটি চালানোর নিয়ম:
+
+১. প্রথমে আপনার কম্পিউটারে Flask ইনস্টল করুন:
+   `pip install flask google-generativeai`
+
+২. একটি ফোল্ডার তৈরি করুন এবং এর ভেতরে `app.py` ফাইলটি রাখুন।
+৩. ওই ফোল্ডারের ভেতরে `templates` নামে একটি ফোল্ডার তৈরি করুন এবং তার ভেতর `index.html` ফাইলটি রাখুন।
+
+৪. এবার টার্মিনালে বা সিএমডিতে গিয়ে রান করুন:
+   `python app.py`
+
+৫. ব্রাউজারে গিয়ে `http://127.0.0.1:5000` লিংকে প্রবেশ করলেই আপনার নিজের এআই কোড পার্টনার চালু হয়ে যাবে!
+
+**সুবিধা:** পাইথন ব্যবহার করায় জেমিনি এখন অনেক বেশি ডাটা হ্যান্ডেল করতে পারবে এবং আপনি চাইলে ভবিষ্যতে এতে **ফাইল আপলোড** বা **কোড সেভ** করার ফিচারও যুক্ত করতে পারবেন। এটি আপনার গিটহাব পোর্টফোলিওর জন্য একটি দুর্দান্ত প্রজেক্ট হবে!
+        

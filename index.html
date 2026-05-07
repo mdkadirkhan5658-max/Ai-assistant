@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-Master AI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app">
-        <input type="text" id="userInput" placeholder="কোড সংক্রান্ত প্রশ্ন করুন...">
-        <button id="sendBtn">পাঠান</button>
-        <div id="output"></div>
+    <div class="chat-container">
+        <header>
+            <div class="logo">🤖 Code-Master AI</div>
+            <div class="status">অনলাইন</div>
+        </header>
+        <div id="chat-box" class="chat-box"></div>
+        <div class="input-area">
+            <textarea id="user-input" placeholder="আপনার কোডিং প্রশ্ন লিখুন..."></textarea>
+            <button id="send-btn">পাঠান</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

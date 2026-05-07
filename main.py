@@ -4,9 +4,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import google.generativeai as genai
 from dotenv import load_dotenv
+from dotenv import load_dotenv
+import os
 
-load_dotenv() # .env ফাইল থেকে কি লোড করে
-
+load_dotenv() # এটি ফাইলটি খুঁজে বের করে এবং কি-টি লোড করে
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-1.5-flash", system_instruction="তুমি একজন দক্ষ সফটওয়্যার ইঞ্জিনিয়ার। সবসময় ক্লিন কোড এবং ব্যাখ্যাসহ উত্তর দেবে।")
 
